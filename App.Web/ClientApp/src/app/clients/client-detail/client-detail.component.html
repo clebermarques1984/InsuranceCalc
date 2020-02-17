@@ -1,0 +1,74 @@
+<div class="dialog-container">
+	<div class="row">
+		<div class="col">
+			<mat-toolbar color="primary">
+				<span>{{
+					service.form.controls["id"].value ? "Alterar Cliente" : "Novo Cliente"
+				}}</span>
+				<span class="fill-remaining-space"></span>
+				<button
+					class="btn-dialog-close"
+					color="primary"
+					mat-flat-button
+					(click)="onClose()"
+					tabIndex="-1"
+				>
+					<mat-icon>clear</mat-icon>
+				</button>
+			</mat-toolbar>
+		</div>
+	</div>
+	<form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<mat-form-field class="full-width">
+						<input matInput placeholder="Nome*" formControlName="nome" />
+						<mat-hint>Obrigatório</mat-hint>
+						<mat-error
+							*ngIf="service.form.controls['nome'].hasError('required')"
+						>
+							Preenchimento <strong>obrigatório</strong>
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<mat-form-field class="full-width">
+						<input
+							matInput
+							placeholder="Idade"
+							type="number"
+							formControlName="idade"
+						/>
+					</mat-form-field>
+				</div>
+				<div class="col-md-8">
+					<mat-form-field class="full-width">
+						<input matInput placeholder="CPF" formControlName="cpf" />
+						<mat-hint>Obrigatório</mat-hint>
+						<mat-error
+							*ngIf="service.form.controls['cpf'].hasError('required')"
+						>
+							Preenchimento <strong>obrigatório</strong>
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col mat-card-actions mat-card-actions-align-end">
+					<button
+						[disabled]="service.form.invalid"
+						mat-raised-button
+						color="primary"
+						type="submit"
+					>
+						Salvar
+					</button>
+					<a mat-raised-button (click)="onClear()">Limpar</a>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

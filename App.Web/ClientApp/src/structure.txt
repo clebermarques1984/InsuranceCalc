@@ -1,0 +1,18 @@
+* app
++---components
+|   +---clients
+|   |   +---client-list.component ts|html|css : Table list
+|   |   |   +---Table list
+|   |   |   |   |   List (Data and Options)
+|   |   |   |   |   Filter
+|   |   |   |   |   Pagination
+|   |   |   |   |   Sort
+|   |   |   |   |   Add button to open register form modal
+|   |   |   |   |   Edit option to open edit form modal
+|   |   |   |   |   Delete option to open confirmation modal
+|   |   +---client-form.component ts|html|css : Register, Update
+
+|   +---shared
+|   |   +---snackbar.component ts|html|css
+|   |   |   |   success, warning, error
+|   |   +---confirm.component ts|html|css
